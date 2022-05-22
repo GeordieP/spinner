@@ -1,137 +1,144 @@
-@import "reset.css";
-
 * {
-    box-sizing: border-box;
-    color: #fff;
+  box-sizing: border-box;
 }
 
-html {
-    height: 100%;
-    font-family: sans-serif;
+html,
+body,
+#root {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  color: #999;
 }
 
-body {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    background: #111;
-    grid-template-columns: auto 70%;
-    grid-template-rows: auto 100px;
-    grid-template-areas:
-        "Layout_Config Layout_Wheel"
-        "Layout_Results Layout_Results";
+main {
+  font-family: sans-serif;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-areas:
+    "sidebar canvas"
+    "sidebar canvas";
+  grid-template-rows: 1fr 100px;
+  grid-template-columns: 400px 4fr;
+  margin: 0;
+  padding: 0;
+  line-height: 1em;
+  background: #111315;
 }
 
-#Layout_Config {
-    grid-area: Layout_Config;
-    overflow: auto;
+#sidebar {
+  grid-area: sidebar;
+  margin: 20px;
+  margin-left: 0;
+  padding: 8px;
+  background: #222426;
+  border-radius: 0 8px 8px 0;
+  overflow: auto;
 }
 
-#Layout_Wheel {
-    grid-area: Layout_Wheel;
-    padding: 10px;
+#canvas {
+  grid-area: canvas;
 }
 
-#Layout_Results {
-    grid-area: Layout_Results;
-    padding: 0 10px;
-    overflow: auto;
+#history {
+  grid-area: history;
 }
 
-h1 {
-    font-size: 24px;
-    color: #aaa;
-    border-bottom: 1px solid #555;
-    margin-bottom: 20px;
+canvas {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 
-input, button {
-    border: none;
-    padding: 5px 9px;
-    border-radius: 4px;
-    margin: 1px;
-    color: rgba(255, 255, 255, 0.6);
+input,
+button {
+  border: 1px solid transparent;
+  padding: 5px 8px;
+  margin: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ccc;
 }
 
-input:hover, button:hover {
-    color: #fff;
+input:hover,
+button:hover {
+  border: 1px solid #333;
 }
 
-input {
-    background: #282828;
-    width: 100%;
-    color: #fff;
+input:active,
+button:active {
+  border: 1px solid #666;
 }
 
-button { background: linear-gradient(to bottom, #333, #1a1a1a); }
-button:hover { background: linear-gradient(to bottom, #555, #3a3a3a); }
-button:active { background: linear-gradient(to bottom, #111, #090909); }
-
-button.red { background: linear-gradient(to bottom, #a00000, #780000); }
-button.red:hover { background: linear-gradient(to bottom, #c00000, #980000); }
-button.red:active { background: linear-gradient(to bottom, #580000, #800000); }
-
-button.blue { background: linear-gradient(to bottom, #0078be, #005078); }
-button.blue:hover { background: linear-gradient(to bottom, #0088ee, #006098); }
-button.blue:active { background: linear-gradient(to bottom, #003058 , #00589e); }
-
-.stretch { display: flex; }
-.stretch button { width: 100%; }
-
-.fullWidth { width: 100%; }
-.fullHeight { height: 100%; }
-
-.flexV {
-    display: flex;
-    flex-direction: row;
+button:disabled {
+  background: transparent;
+  color: #555;
 }
 
-.flexH {
-    display: flex;
-    flex-direction: column;
+#controls {
+  display: flex;
+  width: 100%;
 }
 
-.centerAll {
-    justify-content: center;
-    align-items: center;
-    align-content: center;
+#controls button {
+  width: 100%;
 }
 
-.wheelOption { display: flex; }
-
-#spinner_wheel, button { cursor: pointer; }
-
-#resultsList {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+.rows {
+  width: 100%;
 }
 
-#resultsList li {
-    font-size: 16pt;
-    color: #444;
-    margin-right: 25px;
+.input-row {
+  display: flex;
+  width: 100%;
+  gap: 2px;
 }
 
-#resultsList li:nth-child(1) {
-    color: skyblue;
-    font-size: 20pt;
+.input-row input {
+  width: 100%;
 }
 
-#resultsList li:nth-child(2) {
-    color: #999;
+hr {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #333;
 }
 
-#resultsList li:nth-child(3) {
-    color: #555;
+#history-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: center;
 }
 
-.credits {
-    font-size: 9pt;
-    color: #333;
-    margin-top: 15px;
+#history-list li {
+  margin-bottom: 14px;
+  opacity: 0;
 }
 
-.credits a {
-    color: #444;
+#history-list li:nth-child(1) {
+  opacity: 1;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: limegreen;
+}
+
+#history-list li:nth-child(2) {
+  opacity: 0.8;
+  font-size: 1.5rem;
+}
+
+#history-list li:nth-child(3) {
+  opacity: 0.5;
+}
+
+#history-list li:nth-child(4) {
+  opacity: 0.3;
+}
+
+#history-list li:nth-child(5) {
+  opacity: 0.2;
 }
