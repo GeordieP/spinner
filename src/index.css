@@ -42,6 +42,15 @@ main {
 
 #canvas {
   grid-area: canvas;
+  transition: transform 0.2s ease-out;
+}
+
+#canvas, button {
+  cursor: pointer;
+}
+
+#canvas:active {
+  transform: scale(0.9);
 }
 
 #history {
