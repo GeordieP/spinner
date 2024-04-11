@@ -22,6 +22,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 
+To build, you can run:
+
 `npm run build`
 
-Builds the application into the `docs` folder, **for deployment using GitHub Pages**.
+This builds the application into the `docs` folder, **for deployment using GitHub Pages**.
