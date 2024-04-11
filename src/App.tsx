@@ -233,7 +233,12 @@ function Spinner(props: SpinnerProps) {
     let speed = 0;
     let ticking = false;
 
-    speed = Math.random() * MAX_SPEED + MIN_SPEED;
+    function pickNextSpinSpeed() {
+      speed = Math.random() * MAX_SPEED + MIN_SPEED;
+
+    }
+    pickNextSpinSpeed();
+
 
     function setDefaults() {
       if (ctx == null) {
@@ -261,6 +266,7 @@ function Spinner(props: SpinnerProps) {
         // if we're given only 1 label, rotate the angle by 180deg so the
         // text renders right-side up.
         if (filteredLabels().length === 1) angle = Math.PI;
+        pickNextSpinSpeed();
         return;
       }
 
@@ -291,7 +297,7 @@ function Spinner(props: SpinnerProps) {
         // one last paint for this cycle in order to render the stopped state.
         render();
         props.stopSpin();
-        speed = Math.random() * MAX_SPEED + MIN_SPEED;
+        pickNextSpinSpeed();
         return;
       }
 
