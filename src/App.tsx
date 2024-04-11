@@ -196,14 +196,14 @@ function Spinner(props: SpinnerProps) {
   const filteredLabels = () =>
     props.labels().filter((x) => x != null && x.length > 0);
 
+  const sliceSize = () => TWOPI / filteredLabels().length;
+  const halfSlice = () => sliceSize() / 2;
+
   const { canvasRef } = useCanvas(
     props.containerWidth,
     props.containerHeight,
     createRenderer
   );
-
-  const sliceSize = () => TWOPI / filteredLabels().length;
-  const halfSlice = () => sliceSize() / 2;
 
   function createRenderer(canvasElement: HTMLCanvasElement) {
     if (canvasElement == null) {
@@ -366,7 +366,7 @@ function Spinner(props: SpinnerProps) {
       ctx.closePath();
     }
 
-    return () => {
+    return function renderLoop() {
       setDefaults();
       update();
       render();

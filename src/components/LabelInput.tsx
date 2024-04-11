@@ -10,7 +10,6 @@ export default function LabelInput(props: {
 
   function onKeyPress(e: any) {
     if (e.keyCode === 13) {
-      debugger;
       props.onEnter();
     }
   }
